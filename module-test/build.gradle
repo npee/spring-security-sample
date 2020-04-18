@@ -1,0 +1,4 @@
+dependencies {
+    // compile project(":parents:boot2-parent")
+    implementation project(":parents:boot2-parent")
+}
