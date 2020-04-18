@@ -1,4 +1,4 @@
-### oidc-google
+# oidc-google
 OpenID Connect를 활용한 Google Login Sample  
 얻을 수 있는 데이터 : https://accounts.google.com/.well-known/openid-configuration
 ## 환경
@@ -21,7 +21,7 @@ public class OidcApplication {
 }
 
 ```
-4. application.yml 설정
+4. 구글 연동 위한 application.yml 설정
 ```$xslt
 spring:
   security:
@@ -47,7 +47,7 @@ public class OidcRestController {
     }
 }
 ```
-5. Spring Security Congfiguration(SecurityConfiguration.java)
+5. Login with Google 창 연결 (SecurityConfiguration.java)
 ```$xslt
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
