@@ -1,6 +1,5 @@
 package com.npee.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -14,32 +13,15 @@ import java.net.URI;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    private String logoutStringUrl = "http://localhost:8080/logoutPage";
+    private URI logoutUrl = URI.create(logoutStringUrl);
 
-    // Field Injection (Constructor based Injection으로 변경 예정)
-    @Autowired
-    private ClientRegistrationRepository clientRegistrationRepository;
-
-    private URI logoutUrl = URI.create("http://localhost:8080/logoutPage");
-
-
-    /*
-    // Setter based Injection 테스트 중
-    private ClientRegistrationRepository clientRegistrationRepository;
-
-    public void setClientRegistrationRepository(ClientRegistrationRepository clientRegistrationRepository) {
-        this.clientRegistrationRepository = clientRegistrationRepository;
-    }
-    */
+    ClientRegistrationRepository clientRegistrationRepository = registrationId -> null;
 
     private LogoutSuccessHandler oidcLogoutSuccessHandler() {
         OidcClientInitiatedLogoutSuccessHandler oidcLogoutSuccessHandler =
             new OidcClientInitiatedLogoutSuccessHandler(this.clientRegistrationRepository);
-
-        // 리다이렉트 세팅 작동 안함
-        // oidcLogoutSuccessHandler.setPostLogoutRedirectUri(logoutUrl);
-
-        // Default 값을 변경
-        oidcLogoutSuccessHandler.setDefaultTargetUrl("http://localhost:8080/logoutPage");
+        oidcLogoutSuccessHandler.setDefaultTargetUrl(logoutStringUrl);
 
         return oidcLogoutSuccessHandler;
     }
@@ -48,13 +30,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         OidcUserService googleUserService = new OidcUserService();
         http
-                .authorizeRequests().antMatchers("/", "/logoutPage").permitAll()
-                .and()
-                .authorizeRequests().anyRequest().authenticated()
-                .and()
-                .oauth2Login().userInfoEndpoint().oidcUserService(googleUserService);
+                .authorizeRequests(
+                        authorizeRequests -> authorizeRequests.antMatchers("/", "/logoutPage").permitAll()
+                                .anyRequest().authenticated())
+                .oauth2Login(
+                        oauth2Login -> oauth2Login.userInfoEndpoint().oidcUserService(googleUserService));
         http
                 .logout(logout -> logout.logoutSuccessHandler(oidcLogoutSuccessHandler()));
 
     }
 }
+
