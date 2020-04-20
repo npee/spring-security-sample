@@ -4,4 +4,5 @@ findProject(':parents:boot2-parent')?.name = 'boot2-parent'
 include 'module-test'
 include 'module-test2'
 include 'oidc-google'
+include 'oauth2-with-common-provider'
 
