@@ -12,6 +12,10 @@ spring:
           facebook:
             client-id: 602978773892378
             client-secret: b79da61a4a2bafb08d3bb72554d081aa
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
 
 logging:
   level:

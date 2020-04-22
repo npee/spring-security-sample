@@ -1,3 +1,7 @@
 dependencies {
     implementation project(":parents:boot2-parent")
+
+    // For JSP view
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
 }
