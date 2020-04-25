@@ -11,11 +11,6 @@ import java.security.Principal;
 @RequestMapping("/")
 public class HomeController {
 
-    @GetMapping
-    public String home() {
-        return "index";
-    }
-
     @GetMapping("/me")
     @ResponseBody
     public Principal getPrincipal(Principal principal) {
