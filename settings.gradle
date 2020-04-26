@@ -5,4 +5,5 @@ include 'module-test'
 include 'module-test2'
 include 'oidc-google'
 include 'oauth2-with-common-provider'
+include 'oauth2-advanced'
 
