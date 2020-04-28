@@ -6,6 +6,9 @@ spring:
           google:
             client-id: 186662393735-rlf77qenvp5d8kcr6m1j4frfqhn45036.apps.googleusercontent.com
             client-secret: 91yZdANb2kl9ntD6MSJTCQMa
+#            scope:
+#              - email
+#              - profile
           github:
             client-id: 9eff5c56323baf07b29d
             client-secret: a51097fca20fff8feb4cdac84e4cd3899414e3ec
