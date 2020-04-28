@@ -15,14 +15,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests(authorizeRequests -> authorizeRequests
                         .antMatchers("/").permitAll())
                 .authorizeRequests(authorizeRequests -> authorizeRequests
-                        .antMatchers("/me").hasRole("USER"))
-                .authorizeRequests(authorizeRequests -> authorizeRequests
-                        .anyRequest().authenticated());
-
+                        .antMatchers("/me").hasRole("USER").anyRequest().authenticated());
         http
                 .oauth2Login()
                 .defaultSuccessUrl("/me")
                 .userInfoEndpoint().userService(new DefaultOAuth2UserService());
     }
-
 }
