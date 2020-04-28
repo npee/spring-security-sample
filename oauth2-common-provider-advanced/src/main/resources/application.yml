@@ -1,26 +1,24 @@
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.springframework.security: DEBUG
+
 spring:
   security:
     oauth2:
       client:
         registration:
           google:
-            client-id: 186662393735-rlf77qenvp5d8kcr6m1j4frfqhn45036.apps.googleusercontent.com
-            client-secret: 91yZdANb2kl9ntD6MSJTCQMa
-#            scope:
-#              - email
-#              - profile
+            client-id: <Google Client ID>
+            client-secret: <Google Client Secret>
           github:
-            client-id: 9eff5c56323baf07b29d
-            client-secret: a51097fca20fff8feb4cdac84e4cd3899414e3ec
+            client-id: <Github Client ID>
+            client-secret: <Github Client Secret>
           facebook:
-            client-id: 602978773892378
-            client-secret: b79da61a4a2bafb08d3bb72554d081aa
+            client-id: <Facebook Client ID>
+            client-secret: <Facebook Client Secret>
+
   mvc:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-
-logging:
-  level:
-    org.springframework.web.client.RestTemplate: DEBUG
-    org.springframework.security: DEBUG

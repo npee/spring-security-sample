@@ -115,5 +115,21 @@ gradle-app.setting
 
 # End of https://www.gitignore.io/api/gradle,java-web,intellij
 
+### Application.yml Files
+*.yml
+!application.yml
+
+# Default
+# application-default.yml
+
 # OAuth Authentication Settings
-application-auth.yml
+# application-auth.yml
+
+# Develope
+# application-dev.yml
+
+# Local
+# application-local.yml
+
+# Test
+# application-test.yml
