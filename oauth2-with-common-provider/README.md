@@ -16,11 +16,19 @@ dependencies {
     implementation project(":parents:boot2-parent")
 }
 ```
-참고 : <a href = "https://github.com/npee/spring-security-sample/blob/master/parents/boot2-parent/README.md">boot2-parent dependencies
-
+참고 : <a href = "https://github.com/npee/spring-security-sample/blob/master/parents/boot2-parent/README.md">boot2-parent dependencies</a>
+### 주요 방식
+#### application 설정 파일 내 값 수정
+* 파일 위치
+    * resources/<a href="https://github.com/npee/spring-security-sample/blob/master/oauth2-with-common-provider/src/main/resources/application.yml">application.yml</a>
+* 속성    
+    * spring.security.oauth2.client.registration.{registrationId}
+* 값
+    * Client ID
+    * Client Secret
 ## 동작
 ### 매핑된 URL 요청 시(권한 없음)
-####`{baseUrl}`   
+#### `{baseUrl}`   
 "main page" 문자열을 출력하는 페이지
 #### `{baseUrl}` 이외   
 스프링 시큐리티에서 기본으로 제공하는 인증 페이지   
