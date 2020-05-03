@@ -12,11 +12,11 @@
 </head>
 <body>
 <h1>로그인 페이지</h1>
-<a href="#">구글 로그인 링크</a><br>
-<a href="#">페이스북 로그인 링크</a><br>
-<a href="#">깃허브 로그인 링크</a>
-<a href="#">카카오톡 로그인 링크</a>
-<a href="#">네이버 로그인 링크</a>
+<a href="/oauth2/authorization/google">구글 로그인 링크</a><br>
+<a href="/oauth2/authorization/facebook">페이스북 로그인 링크</a><br>
+<a href="/oauth2/authorization/github">깃허브 로그인 링크</a><br>
+<a href="/oauth2/authorization/naver">네이버 로그인 링크</a><br>
+<a href="/oauth2/authorization/kakao">카카오톡 로그인 링크</a><br>
 </body>
 </html>
 
